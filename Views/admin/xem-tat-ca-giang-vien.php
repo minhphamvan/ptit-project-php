@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="Views/admin/css/main.css">
 </head>
 
+<?php var_dump($_POST); ?>
+
 <body>
     <div class="wrapper">
         <div class="container">

@@ -1,6 +1,6 @@
 <?php
 
-class ProfessorController extends BaseController
+class ExamController extends BaseController
 {
 
     public function index()

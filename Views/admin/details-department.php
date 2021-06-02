@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTIT - Quản lý trường học</title>
+    <title><?= $pageTitle ?></title>
     <link rel="stylesheet" href="Views/admin/css/main.css">
 </head>
 
@@ -17,28 +17,31 @@
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
-                        <p class="right__desc">Thêm khoa</p>
+                        
+                        <p class="right__desc"><?= $pageTitle ?></p>
+
                         <div class="right__formWrapper">
-                            <form action="" method="post">
+                            <form action="/ptit-project-php/index.php?controller=department&action=update" method="post">
                                 <div class="right__inputWrapper">
                                     <label for="title">Mã khoa</label>
-                                    <input type="text" placeholder="Mã khoa">
+                                    <input type="text" placeholder="Mã khoa" name='id' value="<?= $department['id'] ?>" readonly>
                                 </div>
 
                                 <div class="right__inputWrapper">
                                     <label for="title">Tên khoa</label>
-                                    <input type="text" placeholder="Tên khoa">
+                                    <input type="text" placeholder="Tên khoa" name='name' value="<?= $department['name'] ?>">
                                 </div>
 
                                 <div class="right__inputWrapper">
                                     <label for="desc">Mô tả</label>
-                                    <textarea name="" id="" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                                    <input type="text" placeholder="Mô tả" name="description" value="<?= $department['description'] ?>"></input>
                                 </div>
-                                <button class="btn" type="submit">Thêm</button>
+
+                                <button class="btn" type="submit">Cập nhật</button>
                             </form>
                         </div>
 
-                        <a href="xem-tat-ca-khoa.html" class="right__tableMore">
+                        <a href="/ptit-project-php/index.php?controller=department&action=show" class="right__tableMore">
                             Xem tất cả khoa<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                     </div>
                 </div>

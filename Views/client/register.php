@@ -106,11 +106,11 @@
 						ĐĂNG KÍ
 					</span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Tài khoản phải có dạng B18DCAT164@ptit.edu.vn">
-                        <input class="input100" type="text" name="email" placeholder="Email">
+                    <div class="wrap-input100 validate-input" data-validate="Bạn cần phải nhập họ tên">
+                        <input class="input100" type="text" name="name" placeholder="Họ tên">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-user" aria-hidden="true"></i>
 						</span>
                     </div>
 
@@ -118,7 +118,7 @@
                         <input class="input100" type="text" name="email" placeholder="Tên đăng nhập">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
+							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
                     </div>
 

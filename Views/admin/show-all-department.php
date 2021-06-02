@@ -17,7 +17,9 @@
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
-                        <p class="right__desc">Xem tất cả khoa</p>
+                        
+                        <p class="right__desc"><?= $pageTitle ?></p>
+
                         <div class="right__table">
                             <div class="right__tableWrapper">
                                 <table>
@@ -33,20 +35,20 @@
                                     </thead>
 
                                     <tbody>
-                                        <?php foreach($department as $d): ?>
+                                        <?php foreach($departments as $d): ?>
                                         
                                         <tr>
                                             <td data-label="Mã khoa"><?= $d['id'] ?></td>
                                             <td data-label="Tên khoa"><?= $d['name'] ?></td>
-                                            <td data-label="Mô tả">#</td>
+                                            <td data-label="Mô tả"><?= $d['description'] ?></td>
                                             <td data-label="Chi tiết" class="right__iconTable">
-                                                <a href="sua-khoa.html"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
+                                                <a href="/ptit-project-php/index.php?controller=department&action=details&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
                                             </td>
                                             <td data-label="Sửa" class="right__iconTable">
-                                                <a href="sua-khoa.html"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
+                                                <a href="/ptit-project-php/index.php?controller=department&action=details&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
                                             </td>
                                             <td data-label="Xoá" class="right__iconTable">
-                                                <a href=""><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
+                                                <a href="/ptit-project-php/index.php?controller=department&action=delete&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                         </tr>
 
@@ -55,7 +57,7 @@
                                     </tbody>
                                 </table>
 
-                                <a href="them-khoa.html" class="right__tableMore">
+                                <a href="/ptit-project-php/index.php?controller=department&action=add" class="right__tableMore">
                                     Thêm khoa<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
                         </div>

@@ -2,41 +2,88 @@
 
 class DepartmentController extends BaseController
 {
+    private $departmentModel;
+
+    public function __construct()
+    {
+        $this->loadModel('DepartmentModel');
+
+        $this->departmentModel = new DepartmentModel;
+    }
 
     public function index()
     {
-        $pageTitle = 'Xem tất cả khoa';
-
-        $department = [
-            ['id'=> 1,
-            'name' => 'CNTT'],
-            ['id'=> 2,
-            'name' => 'ATTT']
-        ];
-
-        return $this->view("admin.xem-tat-ca-khoa", 
-                            ['department' => $department,
-                            'pageTitle' => $pageTitle
-                            ]);
+        header("Location: /ptit-project-php/index.php?controller=department&action=show");
     }
 
     public function show()
     {
-        return $this->view("admin.xem-tat-ca-khoa");
+        $pageTitle = 'Xem tất cả khoa';
+
+        $departments = $this->departmentModel->getAllDepartment();
+
+        return $this->view("admin.show-all-department", 
+                            ['pageTitle' => $pageTitle,
+                            'departments' => $departments
+                            ]);
     }
 
     public function add()
     {
-        return $this->view("admin.them-khoa");
+        $pageTitle = 'Thêm khoa';
+
+        return $this->view("admin.add-department", [
+            '$pageTitle' => $pageTitle
+        ]);
     }
 
-    public function edit()
+    public function add_Post()
     {
-        return $this->view("admin.sua-khoa");
+        $data = [
+            'name' => $_POST['name'],
+            'description' => $_POST['description']
+        ];
+
+        $this->departmentModel->addDepartment($data);
+
+        header("Location: /ptit-project-php/index.php?controller=department&action=show"); // Redirect
     }
 
     public function details()
     {
-        return $this->view("admin.sua-khoa");
+        $pageTitle = "Xem chi tiết khoa";
+
+        $id = $_GET['id'];   
+        $department = $this->departmentModel->getDepartmentById($id); 
+
+        return $this->view("admin.details-department",[
+            'pageTitle' => $pageTitle,
+            'department' => $department
+        ]);
     }
+
+    public function update()
+    {
+        $id = $_POST['id'];
+
+        $data = [
+            'id' => $_POST['id'],
+            'name' => $_POST['name'],
+            'description' => $_POST['description']
+        ];
+
+        $this->departmentModel->updateDepartment($id, $data);
+
+        header("Location: /ptit-project-php/index.php?controller=department&action=show");
+    }
+
+    public function delete()
+    {
+        $id = $_GET['id'];   
+        $this->departmentModel->deleteDepartment($id); 
+
+        header("Location: /ptit-project-php/index.php?controller=department&action=show");
+    }
+
+    
 }

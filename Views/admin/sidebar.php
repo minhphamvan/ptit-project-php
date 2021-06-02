@@ -27,6 +27,14 @@
                             </li>
 
                             <li class="left__menuItem">
+                                <div class="left__title"><img src="Views/admin/assets/icon-users.svg" alt="">Quản trị viên<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
+                                <div class="left__text">
+                                    <a class="left__link" href="them-giang-vien.html">Thêm người dùng</a>
+                                    <a class="left__link" href="xem-tat-ca-giang-vien.html">Xem tất cả</a>
+                                </div>
+                            </li>
+
+                            <li class="left__menuItem">
                                 <div class="left__title"><img src="Views/admin/assets/icon-edit.svg" alt="">Khoa<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
                                     <a class="left__link" href="them-khoa.html">Thêm khoa</a>
@@ -39,14 +47,6 @@
                                 <div class="left__text">
                                     <a class="left__link" href="them-nganh.html">Thêm ngành</a>
                                     <a class="left__link" href="xem-tat-ca-nganh.html">Xem tất cả</a>
-                                </div>
-                            </li>
-
-                            <li class="left__menuItem">
-                                <div class="left__title"><img src="Views/admin/assets/icon-user.svg" alt="">Người dùng<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
-                                <div class="left__text">
-                                    <a class="left__link" href="them-giang-vien.html">Thêm người dùng</a>
-                                    <a class="left__link" href="xem-tat-ca-giang-vien.html">Xem tất cả</a>
                                 </div>
                             </li>
 

@@ -3,6 +3,8 @@
 class BaseController {
     const VIEW_FOLDER_NAME = 'Views';
 
+    const MODEL_FOLDER_NAME = 'Models';
+
     /*
      * path = Views/.../...
      */
@@ -12,6 +14,13 @@ class BaseController {
             $$key = $value;
         }
 
-        return require (self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');
+        require (self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');
     }
+
+
+    protected function loadModel($modelPath){
+        
+        require (self::MODEL_FOLDER_NAME . '/' . $modelPath . '.php');
+    }
+    
 }
