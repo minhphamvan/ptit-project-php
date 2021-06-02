@@ -6,10 +6,12 @@ class BaseController {
     /*
      * path = Views/.../...
      */
-    protected function view($viewPath)
+    protected function view($viewPath, array $data = [])
     {
-        $viewPath = self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php';
+        foreach($data as $key => $value){ // Gán dữ liệu để truyền từ Controller qua View
+            $$key = $value;
+        }
 
-        require $viewPath;
+        return require (self::VIEW_FOLDER_NAME . '/' . str_replace('.', '/', $viewPath) . '.php');
     }
 }

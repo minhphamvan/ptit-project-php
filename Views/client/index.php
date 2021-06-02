@@ -61,7 +61,7 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                  </button>
-                        <a class="navbar-brand" href="index.html"><img src="Views/client/images/logo_ptit.png" alt="PTIT"></a>
+                        <a class="navbar-brand" href="./index.php?controller=client"><img src="Views/client/images/logo_ptit.png" alt="PTIT"></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -72,9 +72,8 @@
                             <li><a href="#MUCTIEU">Mục tiêu</a></li>
                             <li><a href="#TINTUC">Tin tức </a></li>
                             <li><a href="#HOTRO">Hỗ trợ</a></li>
-                            <li><a href="/login.html">Đăng nhập</a></li>
-                            <li><a href="/register.html">Đăng kí</a></li>
-                            <li><a href="/admin/dashboard.html">Trang quản trị</a></li>
+                            <li><a href="./index.php?controller=client&action=login">Đăng nhập</a></li>
+                            <li><a href="./index.php?controller=client&action=register">Đăng kí</a></li>
                         </ul>
                     </div>
                 </div>

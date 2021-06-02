@@ -84,7 +84,6 @@
                             <li><a href="/index.html">Hỗ trợ</a></li>
                             <li><a href="/login.html">Đăng nhập</a></li>
                             <li><a href="/register.html">Đăng kí</a></li>
-                            <li><a href="/admin/dashboard.html">Trang quản trị</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->

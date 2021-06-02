@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTIT - Quản lý trường học</title>
+    <title><?= $pageTitle ?></title>
     <link rel="stylesheet" href="Views/admin/css/main.css">
 </head>
 
@@ -33,10 +33,12 @@
                                     </thead>
 
                                     <tbody>
+                                        <?php foreach($department as $d): ?>
+                                        
                                         <tr>
-                                            <td data-label="Mã khoa">K001</td>
-                                            <td data-label="Tên khoa">Công nghệ thông tin</td>
-                                            <td data-label="Mô tả">Thành lập 15-4-2010</td>
+                                            <td data-label="Mã khoa"><?= $d['id'] ?></td>
+                                            <td data-label="Tên khoa"><?= $d['name'] ?></td>
+                                            <td data-label="Mô tả">#</td>
                                             <td data-label="Chi tiết" class="right__iconTable">
                                                 <a href="sua-khoa.html"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
                                             </td>
@@ -47,6 +49,8 @@
                                                 <a href=""><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                         </tr>
+
+                                        <?php endforeach; ?>
 
                                     </tbody>
                                 </table>

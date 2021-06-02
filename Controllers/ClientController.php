@@ -18,7 +18,7 @@ class ClientController extends BaseController
         return $this->view("client.register");
     }
 
-    public function forgot_password()
+    public function forgot()
     {
         return $this->view("client.forgot-password");
     }

@@ -5,7 +5,19 @@ class DepartmentController extends BaseController
 
     public function index()
     {
-        return $this->view("admin.xem-tat-ca-khoa");
+        $pageTitle = 'Xem tất cả khoa';
+
+        $department = [
+            ['id'=> 1,
+            'name' => 'CNTT'],
+            ['id'=> 2,
+            'name' => 'ATTT']
+        ];
+
+        return $this->view("admin.xem-tat-ca-khoa", 
+                            ['department' => $department,
+                            'pageTitle' => $pageTitle
+                            ]);
     }
 
     public function show()
