@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="Views/admin/css/main.css">
 </head>
 
-
 <body>
     <div class="wrapper">
         <div class="container">

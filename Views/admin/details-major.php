@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTIT - Quản lý trường học</title>
+    <title><?= $pageTitle ?></title>
     <link rel="stylesheet" href="Views/admin/css/main.css">
 </head>
 
@@ -17,33 +17,44 @@
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
-                        <p class="right__desc">Chi tiết ngành</p>
+                        <p class="right__desc"><?= $pageTitle ?></p>
                         <div class="right__formWrapper">
-                            <form action="" method="post">
+                            <form action="/ptit-project-php/index.php?controller=major&action=update" method="post">
                                 <div class="right__inputWrapper">
                                     <label for="title">Mã ngành</label>
-                                    <input type="text" placeholder="Mã ngành" value="N001" readonly>
+                                    <input type="text" name='id' placeholder="Mã ngành" value="<?= $major['id'] ?>" readonly>
                                 </div>
 
                                 <div class="right__inputWrapper">
                                     <label for="title">Tên ngành</label>
-                                    <input type="text" placeholder="Tên ngành" value="Cơ điện tử" readonly>
+                                    <input type="text" name='name' placeholder="Tên ngành" value="<?= $major['name'] ?>">
                                 </div>
 
                                 <div class="right__inputWrapper">
                                     <label for="title">Thuộc khoa</label>
-                                    <input type="text" placeholder="Thuộc khoa" value="Điện tử" readonly>
+                                    <select id="select" name="id_department">
+                                        <?php foreach($departments as $d): ?>
+                                            
+                                            <?php if($major['id_department'] == $d['id']) { ?>
+                                                <option value="<?= $d['id'] ?>" selected > <?= $d['name'] ?> </option>
+                                            <?php } else { ?>
+                                                <option value="<?= $d['id'] ?>" > <?= $d['name'] ?> </option>
+                                            <?php }; ?>
+                                            
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
 
                                 <div class="right__inputWrapper">
-                                    <label for="desc">Mô tả</label>
-                                    <textarea name="" id="" cols="30" rows="10" placeholder="Mô tả"></textarea>
+                                    <label for="description">Mô tả</label>
+                                    <input name="description" value="<?= $major['description'] ?>" placeholder="Mô tả"></input>
                                 </div>
+
                                 <button class="btn" type="submit">Cập nhật</button>
                             </form>
                         </div>
 
-                        <a href="xem-tat-ca-nganh.html" class="right__tableMore">
+                        <a href="/ptit-project-php/index.php?controller=major&action=show" class="right__tableMore">
                             Xem tất cả ngành<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                     </div>
                 </div>

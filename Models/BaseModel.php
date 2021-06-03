@@ -14,9 +14,8 @@ class BaseModel extends Database {
         return mysqli_query($this->connect, $sql);
     }
 
-    public function getAll($table)
+    public function _getAllDataByQuery($sql)
     {
-        $sql = "SELECT * FROM ${table}";
         $query = $this->_query($sql);
 
         $data = [];
@@ -27,6 +26,20 @@ class BaseModel extends Database {
         }
 
         return $data;
+    }
+
+    public function _getRowDataByQuery($sql)
+    {
+        $query = $this->_query($sql);
+
+        return mysqli_fetch_assoc($query);
+    }
+
+    public function getAll($table)
+    {
+        $sql = "SELECT * FROM ${table}";
+
+        return $this->_getAllDataByQuery($sql);
     }
 
     public function getById($table, $id)

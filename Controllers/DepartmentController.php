@@ -7,7 +7,6 @@ class DepartmentController extends BaseController
     public function __construct()
     {
         $this->loadModel('DepartmentModel');
-
         $this->departmentModel = new DepartmentModel;
     }
 
@@ -33,7 +32,7 @@ class DepartmentController extends BaseController
         $pageTitle = 'Thêm khoa';
 
         return $this->view("admin.add-department", [
-            '$pageTitle' => $pageTitle
+            'pageTitle' => $pageTitle
         ]);
     }
 

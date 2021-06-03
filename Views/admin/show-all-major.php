@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTIT - Quản lý trường học</title>
+    <title><?= $pageTitle ?></title>
     <link rel="stylesheet" href="Views/admin/css/main.css">
 </head>
 
@@ -17,7 +17,7 @@
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
-                        <p class="right__desc">Xem tất cả ngành</p>
+                        <p class="right__desc"><?= $pageTitle ?></p>
                         <div class="right__table">
                             <div class="right__tableWrapper">
                                 <table>
@@ -34,26 +34,32 @@
                                     </thead>
 
                                     <tbody>
+                                        <?php foreach($majors as $m): ?>
+                                        
                                         <tr>
-                                            <td data-label="Mã ngành">N001</td>
-                                            <td data-label="Tên ngành">Cơ điện tử</td>
-                                            <td data-label="Thuộc khoa">Điện tử</td>
-                                            <td data-label="Mô tả">Thành lập 14-4-2010</td>
+                                            <td data-label="Mã ngành"><?= $m['id'] ?></td>
+                                            <td data-label="Tên ngành"><?= $m['name'] ?></td>
+                                            <td data-label="Thuộc khoa"><?= $m['name_department'] ?></td>
+                                            <td data-label="Mô tả"><?= $m['description'] ?></td>
+
                                             <td data-label="Chi tiết" class="right__iconTable">
-                                                <a href="sua-nganh.html"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
+                                                <a href="/ptit-project-php/index.php?controller=major&action=details&id=<?= $m['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
                                             </td>
                                             <td data-label="Sửa" class="right__iconTable">
-                                                <a href="sua-nganh.html"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
+                                                <a href="/ptit-project-php/index.php?controller=major&action=details&id=<?= $m['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
                                             </td>
                                             <td data-label="Xoá" class="right__iconTable">
-                                                <a href=""><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
+                                                <a href="/ptit-project-php/index.php?controller=major&action=delete&id=<?= $m['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                         </tr>
 
+                                        <?php endforeach; ?>
+
                                     </tbody>
+
                                 </table>
 
-                                <a href="them-nganh.html" class="right__tableMore">
+                                <a href="/ptit-project-php/index.php?controller=major&action=add" class="right__tableMore">
                                     Thêm ngành<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
                         </div>
