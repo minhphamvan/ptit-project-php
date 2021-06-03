@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="right__table">
-                            <p class="right__tableTitle">Thông tin quản trị</p>
+                            <p class="right__tableTitle">Danh sách quản trị viên</p>
                             <div class="right__tableWrapper">
                             
                                 <table>

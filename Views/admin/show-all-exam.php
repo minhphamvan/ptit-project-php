@@ -54,8 +54,8 @@
                                     </tbody>
                                 </table>
 
-                                <a href="" class="right__tableMore" style="width: 535px; padding-top: 15px;">
-                                    In thống kê<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
+                                <a href="" class="right__tableMore" style="width: 550px; padding-top: 15px;">
+                                    Xuất file thống kê<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
                         </div>
                     </div>

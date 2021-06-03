@@ -57,7 +57,7 @@
                                 </table>
 
                                 <a href="/ptit-project-php/index.php?controller=exam&action=show" class="right__tableMore">
-                                    Xem thống kê<img src="Views/admin/assets/icon-return.svg" alt=""></a>
+                                    Quay lại thống kê<img src="Views/admin/assets/icon-return.svg" alt=""></a>
                             </div>
                         </div>
                     </div>
