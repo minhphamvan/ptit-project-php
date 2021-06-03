@@ -27,11 +27,11 @@
                             </li>
 
                             <li class="left__menuItem">
-                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Xem thống kê</a>
+                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Biểu đồ</a>
                             </li>
 
                             <li class="left__menuItem">
-                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Biểu đồ</a>
+                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Thống kê</a>
                             </li>
 
                             <li class="left__menuItem">
