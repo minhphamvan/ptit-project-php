@@ -23,11 +23,19 @@
                             </li>
 
                             <li class="left__menuItem">
-                                <a href="thong-tin-nguoi-dung.html" class="left__title"><img src="Views/admin/assets/icon-user.svg" alt="">Thông tin người dùng</a>
+                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Sinh nhật hôm nay</a>
                             </li>
 
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="Views/admin/assets/icon-users.svg" alt="">Quản trị viên<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
+                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Thống kê</a>
+                            </li>
+
+                            <li class="left__menuItem">
+                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Biểu đồ</a>
+                            </li>
+
+                            <li class="left__menuItem">
+                                <div class="left__title"><img src="Views/admin/assets/icon-users.svg" alt="">Người dùng<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
                                     <a class="left__link" href="them-giang-vien.html">Thêm người dùng</a>
                                     <a class="left__link" href="xem-tat-ca-giang-vien.html">Xem tất cả</a>
@@ -43,35 +51,31 @@
                             </li>
 
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="Views/admin/assets/icon-book.svg" alt="">Ngành<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
+                                <div class="left__title"><img src="Views/admin/assets/icon-tag.svg" alt="">Ngành<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="them-nganh.html">Thêm ngành</a>
-                                    <a class="left__link" href="xem-tat-ca-nganh.html">Xem tất cả</a>
+                                    <a class="left__link" href="#">Thêm ngành</a>
+                                    <a class="left__link" href="#">Xem tất cả</a>
                                 </div>
                             </li>
 
                             <li class="left__menuItem">
                                 <div class="left__title"><img src="Views/admin/assets/icon-user.svg" alt="">Sinh viên<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="them-sinh-vien.html">Thêm sinh viên</a>
-                                    <a class="left__link" href="xem-tat-ca-sinh-vien.html">Xem tất cả</a>
+                                    <a class="left__link" href="#">Thêm sinh viên</a>
+                                    <a class="left__link" href="#">Xem tất cả</a>
                                 </div>
                             </li>
 
                             <li class="left__menuItem">
                                 <div class="left__title"><img src="Views/admin/assets/icon-book.svg" alt="">Môn học<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="them-mon-hoc.html">Thêm môn học</a>
-                                    <a class="left__link" href="xem-tat-ca-mon-hoc.html">Xem tất cả</a>
+                                    <a class="left__link" href="#">Thêm môn học</a>
+                                    <a class="left__link" href="#">Xem tất cả</a>
                                 </div>
                             </li>
 
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="Views/admin/assets/icon-tag.svg" alt="">Điểm thi<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
-                                <div class="left__text">
-                                    <a class="left__link" href="them-phong-hoc.html">Thêm điểm thi</a>
-                                    <a class="left__link" href="xem-tat-ca-phong-hoc.html">Xem tất cả</a>
-                                </div>
+                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-settings.svg" alt="">Thông tin tài khoản</a>
                             </li>
 
                             <li class="left__menuItem">

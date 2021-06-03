@@ -1,31 +1,108 @@
 <?php
 
-class StudentController extends BaseController
+class  StudentController extends BaseController
 {
+    private $studentModel;
+    private $majorModel;
+
+    public function __construct()
+    {
+        $this->loadModel('StudentModel');
+        $this->studentModel = new StudentModel;
+
+        $this->loadModel('MajorModel');
+        $this->majorModel = new MajorModel;
+    }
 
     public function index()
     {
-        return $this->view("admin.xem-tat-ca-sinh-vien");
+        header("Location: /ptit-project-php/index.php?controller=student&action=show");
     }
 
     public function show()
     {
-        return $this->view("admin.xem-tat-ca-sinh-vien");
+        $pageTitle = 'Xem tất cả sinh viên';
+
+        $majors = $this->majorModel->getAllMajor();
+
+        $students = $this->studentModel->getAllStudent();
+
+        return $this->view("admin.show-all-student", 
+                            ['pageTitle' => $pageTitle,
+                            'students' => $students,
+                            'majors' => $majors
+                            ]);
     }
 
     public function add()
     {
-        return $this->view("admin.them-sinh-vien");
+        $pageTitle = 'Thêm sinh viên';
+
+        $majors = $this->majorModel->getAllMajor();
+
+        return $this->view("admin.add-student", [
+            'pageTitle' => $pageTitle,
+            'majors' => $majors
+        ]);
     }
 
-    public function edit()
+    public function add_Post()
     {
-        return $this->view("admin.sua-sinh-vien");
+        $data = [
+            'code' => $_POST['code'],
+            'name' => $_POST['name'],
+            'birthday' => $_POST['birthday'],
+            'address' => $_POST['address'],
+            'email' => $_POST['email'],
+            'id_major' => $_POST['id_major'],
+        ];
+
+        $this->studentModel->addStudent($data);
+
+        header("Location: /ptit-project-php/index.php?controller=student&action=show"); // Redirect
     }
 
     public function details()
     {
-        return $this->view("admin.sua-sinh-vien");
+        $pageTitle = "Xem chi tiết sinh viên";
+
+        $id = $_GET['id'];   
+        $student = $this->studentModel->getStudentById($id); 
+
+        $majors = $this->majorModel->getAllMajor();
+
+        return $this->view("admin.details-student",[
+            'pageTitle' => $pageTitle,
+            'student' => $student,
+            'majors' => $majors
+        ]);
     }
 
+    public function update()
+    {
+        $id = $_POST['id'];
+
+        $data = [
+            'code' => $_POST['code'],
+            'name' => $_POST['name'],
+            'birthday' => $_POST['birthday'],
+            'address' => $_POST['address'],
+            'email' => $_POST['email'],
+            'id_major' => $_POST['id_major'],
+        ];
+
+        $this->studentModel->updateStudent($id, $data);
+
+        header("Location: /ptit-project-php/index.php?controller=student&action=show");
+    }
+
+    public function delete()
+    {
+        $id = $_GET['id'];   
+        $this->studentModel->deleteStudent($id); 
+
+        header("Location: /ptit-project-php/index.php?controller=student&action=show");
+    }
+
+    
 }

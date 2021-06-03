@@ -83,4 +83,11 @@ class BaseModel extends Database {
         $this->_query($sql);
     }
     
+    public function count($table)
+    {
+        $sql = "SELECT COUNT(*) FROM ${table}";
+        $query = $this->_query($sql);
+
+        return mysqli_fetch_array($query)[0];
+    }
 }

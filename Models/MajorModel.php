@@ -32,5 +32,10 @@ class MajorModel extends BaseModel {
     {
         return $this->delete(self::TABLE, $id);
     }
+
+    public function countMajor()
+    {
+        return $this->count(self::TABLE);
+    }
 }
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PTIT - Quản lý trường học</title>
+    <title><?= $pageTitle ?></title>
     <link rel="stylesheet" href="Views/admin/css/main.css">
 </head>
 
@@ -17,36 +17,44 @@
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
-                        <p class="right__desc">Thêm sinh viên</p>
+                        <p class="right__desc"><?= $pageTitle ?></p>
                         <div class="right__formWrapper">
-                            <form action="" method="post">
+                            <form action="/ptit-project-php/index.php?controller=student&action=add_Post" method="post">
+                            
                                 <div class="right__inputWrapper">
                                     <label for="title">Mã sinh viên</label>
-                                    <input type="text" placeholder="Mã sinh viên">
+                                    <input type="text" name='code' placeholder="Mã sinh viên">
                                 </div>
 
                                 <div class="right__inputWrapper">
-                                    <label for="image">Hình ảnh</label>
-                                    <input type="file">
+                                    <label for="title">Họ tên</label>
+                                    <input type="text" name='name' placeholder="Họ tên">
                                 </div>
-
-                                <div class="right__inputWrapper">
-                                    <label for="title">Tên sinh viên</label>
-                                    <input type="text" placeholder="Tên sinh viên">
-                                </div>
-
+                                
                                 <div class="right__inputWrapper">
                                     <label for="birthday">Ngày sinh</label>
-                                    <input type="date" id="birthday" name="birthday">
+                                    <input type="date" name="birthday">
+                                </div>
+
+
+                                <div class="right__inputWrapper">
+                                    <label for="title">Địa chỉ</label>
+                                    <input type="text" name='address' placeholder="Địa chỉ">
+                                </div>
+
+                                <div class="right__inputWrapper">
+                                    <label for="title">Email</label>
+                                    <input type="text" name='email' placeholder="Email">
                                 </div>
 
                                 <div class="right__inputWrapper">
                                     <label for="title">Thuộc ngành</label>
-                                    <select id="select">
-                                        <option value="Điện điện tử">Điện điện tử</option>
-                                        <option value="Hệ thống thông tin">Hệ thống thông tin</option>
-                                        <option value="Công nghệ phần mềm">Công nghệ phần mềm</option>
-                                        <option value="An toàn thông tin">An toàn thông tin</option>
+                                    <select id="select" name="id_major">
+
+                                        <?php foreach($majors as $m): ?>
+                                        <option value="<?= $m['id']?>"><?= $m['name']?></option>
+                                        <?php endforeach; ?>
+
                                     </select>
                                 </div>
 
@@ -54,7 +62,7 @@
                             </form>
                         </div>
 
-                        <a href="xem-tat-ca-sinh-vien.html" class="right__tableMore">
+                        <a href="/ptit-project-php/index.php?controller=student&action=show" class="right__tableMore">
                             Xem tất cả sinh viên<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                     </div>
                 </div>

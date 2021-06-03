@@ -25,30 +25,30 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Mã khoa</th>
-                                            <th>Tên khoa</th>
-                                            <th>Mô tả</th>
-                                            <th>Chi tiết</th>
+                                            <th>Mã</th>
+                                            <th>Mã môn học</th>
+                                            <th>Môn học</th>
+                                            <th>Điểm thi</th>
+                                            
                                             <th>Sửa</th>
-                                            <th>Xoá</th>
+                                            <th>Xóa</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
-                                        <?php foreach($departments as $d): ?>
+                                        <?php foreach($exams as $e): ?>
                                         
                                         <tr>
-                                            <td data-label="Mã khoa"><?= $d['id'] ?></td>
-                                            <td data-label="Tên khoa"><?= $d['name'] ?></td>
-                                            <td data-label="Mô tả"><?= $d['description'] ?></td>
-                                            <td data-label="Chi tiết" class="right__iconTable">
-                                                <a href="/ptit-project-php/index.php?controller=department&action=details&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
-                                            </td>
+                                            <td data-label="Mã"><?= $e['id'] ?></td>
+                                            <td data-label="Mã môn học"><?= $e['id_subject'] ?></td>
+                                            <td data-label="Môn học"><?= $e['name_subject'] ?></td>
+                                            <td data-label="Điểm thi"><?= $e['result'] ?></td>
+
                                             <td data-label="Sửa" class="right__iconTable">
-                                                <a href="/ptit-project-php/index.php?controller=department&action=details&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
+                                                <a href="/ptit-project-php/index.php?controller=exam&action=details&id=<?= $e['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
                                             </td>
                                             <td data-label="Xoá" class="right__iconTable">
-                                                <a href="/ptit-project-php/index.php?controller=department&action=delete&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
+                                                <a href="/ptit-project-php/index.php?controller=exam&action=delete&id=<?= $e['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
                                             </td>
                                         </tr>
 
@@ -56,8 +56,8 @@
                                     </tbody>
                                 </table>
 
-                                <a href="/ptit-project-php/index.php?controller=department&action=add" class="right__tableMore">
-                                    Thêm khoa<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
+                                <a href="/ptit-project-php/index.php?controller=exam&action=show" class="right__tableMore">
+                                    Xem thống kê<img src="Views/admin/assets/icon-return.svg" alt=""></a>
                             </div>
                         </div>
                     </div>

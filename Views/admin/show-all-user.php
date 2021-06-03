@@ -12,43 +12,14 @@
     <div class="wrapper">
         <div class="container">
             <div class="dashboard">
-            <?php include "Views/admin/sidebar.php";?>
+                <?php include "Views/admin/sidebar.php"; ?>
 
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
                         <p class="right__desc"><?= $pageTitle ?></p>
-
-                        <div class="right__cards">
-                            <a class="right__card" href="/ptit-project-php/index.php?controller=department&action=show">
-                                <div class="right__cardTitle">Khoa</div>
-                                <div class="right__cardNumber"><?= $numberDepartment ?></div>
-                                <div class="right__cardDesc">Xem Chi Tiết <img src="Views/admin/assets/arrow-right.svg" alt=""></div>
-                            </a>
-
-                            <a class="right__card" href="/ptit-project-php/index.php?controller=major&action=show">
-                                <div class="right__cardTitle">Ngành</div>
-                                <div class="right__cardNumber"><?= $numberMajor ?></div>
-                                <div class="right__cardDesc">Xem Chi Tiết <img src="Views/admin/assets/arrow-right.svg" alt=""></div>
-                            </a>
-
-                            <a class="right__card" href="/ptit-project-php/index.php?controller=student&action=show">
-                                <div class="right__cardTitle">Sinh viên</div>
-                                <div class="right__cardNumber"><?= $numberStudent ?></div>
-                                <div class="right__cardDesc">Xem Chi Tiết <img src="Views/admin/assets/arrow-right.svg" alt=""></div>
-                            </a>
-
-                            <a class="right__card" href="/ptit-project-php/index.php?controller=subject&action=show">    
-                                <div class="right__cardTitle">Môn học</div>
-                                <div class="right__cardNumber"><?= $numberSubject ?></div>
-                                <div class="right__cardDesc">Xem Chi Tiết <img src="Views/admin/assets/arrow-right.svg" alt=""></div>
-                            </a>
-                        </div>
-
                         <div class="right__table">
-                            <p class="right__tableTitle">Thông tin quản trị</p>
                             <div class="right__tableWrapper">
-                            
                                 <table>
                                     <thead>
                                         <tr>
@@ -65,7 +36,7 @@
                                     </thead>
 
                                     <tbody>
-                                        <?php foreach($users as $u): ?>
+                                         <?php foreach($users as $u): ?>
                                             
                                             <tr>
                                                 <td data-label="Mã"><?= $u['id'] ?></td>
@@ -89,17 +60,17 @@
                                     </tbody>
                                 </table>
 
+                                <a href="/ptit-project-php/index.php?controller=user&action=add" class="right__tableMore">
+                                    Thêm người dùng<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
-
-                            <a href="/ptit-project-php/index.php?controller=user&action=add" class="right__tableMore">
-                                Thêm người dùng<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
-
                         </div>
                     </div>
                 </div>
 
             </div>
+
         </div>
+
     </div>
 
     <script src="Views/admin/js/main.js"></script>
