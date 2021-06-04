@@ -23,7 +23,6 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Mã</th>
                                             <th>Mã sinh viên</th>
                                             <th>Họ tên</th>
                                             <th>Ngày sinh</th>
@@ -32,8 +31,6 @@
                                             <th>Thuộc ngành</th>
 
                                             <th>Chi tiết</th>
-                                            <th>Sửa</th>
-                                            <th>Xoá</th>
                                         </tr>
                                     </thead>
 
@@ -41,7 +38,6 @@
                                         <?php foreach($students as $s): ?>
                                         
                                         <tr>
-                                            <td data-label="Mã"><?= $s['id'] ?></td>
                                             <td data-label="Mã sinh viên"><?= $s['code'] ?></td>
                                             <td data-label="Họ tên"><?= $s['name'] ?></td>
 
@@ -55,12 +51,6 @@
                                             <td data-label="Chi tiết" class="right__iconTable">
                                                 <a href="/ptit-project-php/index.php?controller=student&action=details&id=<?= $s['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
                                             </td>
-                                            <td data-label="Sửa" class="right__iconTable">
-                                                <a href="/ptit-project-php/index.php?controller=student&action=details&id=<?= $s['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
-                                            </td>
-                                            <td data-label="Xoá" class="right__iconTable">
-                                                <a href="/ptit-project-php/index.php?controller=student&action=delete&id=<?= $s['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
-                                            </td>
                                         </tr>
 
                                         <?php endforeach; ?>
@@ -69,14 +59,11 @@
 
                                 </table>
 
-                                <a href="/ptit-project-php/index.php?controller=student&action=add" class="right__tableMore" style="width: 532px; padding-top: 15px;">
-                                    Thêm sinh viên <img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
+                                <a href="/ptit-project-php/index.php?controller=student&action=sendMail" class="right__tableMore" style="width: 490px; padding-top: 15px;">
+                                    Gửi mail<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                                 
-                                <a href="/ptit-project-php/index.php?controller=student&action=haveBirthday" class="right__tableMore" style="width: 550px; padding-top: 15px;">
-                                    Sinh nhật hôm nay<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
-                            
-                                <a href="/ptit-project-php/index.php?controller=student&action=export" class="right__tableMore" style="width: 550px; padding-top: 15px;">
-                                    Xuất file danh sách<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
+                                    <a href="/ptit-project-php/index.php?controller=student&action=show" class="right__tableMore" style="width: 535px; padding-top: 15px;">
+                                    Xem tất cả sinh viên <img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
                         </div>
                     </div>

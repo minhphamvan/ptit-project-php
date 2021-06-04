@@ -31,11 +31,15 @@
                             </li>
 
                             <li class="left__menuItem">
-                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Thống kê</a>
+                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Sửa slider</a>
                             </li>
 
                             <li class="left__menuItem">
-                                <a href="/ptit-project-php/index.php?controller=user&action=details&id=1" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Sửa slider</a>
+                                <div class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Thống kê<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
+                                <div class="left__text">
+                                    <a class="left__link" href="them-giang-vien.html">Thêm điểm</a>
+                                    <a class="left__link" href="xem-tat-ca-giang-vien.html">Xem thống kê</a>
+                                </div>
                             </li>
 
                             <li class="left__menuItem">

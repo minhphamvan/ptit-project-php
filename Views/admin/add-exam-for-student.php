@@ -17,19 +17,14 @@
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
-                        <p class="right__desc"><?= $pageTitle ?></p>
+                        <p class="right__desc"><?= $pageTitle ?> : <?= $student['name'] ?></p>
                         <div class="right__formWrapper">
                             <form action="/ptit-project-php/index.php?controller=exam&action=add_Post" method="post">
 
                                 <div class="right__inputWrapper">
                                     <label for="title">Họ tên</label>
-                                    <select id="select" name="id_student">
-
-                                        <?php foreach($students as $s): ?>
-                                        <option value="<?= $s['id']?>"><?= $s['name']?></option>
-                                        <?php endforeach; ?>
-
-                                    </select>
+                                    <input type="text" name='id_student' placeholder="Sinh viên" value="<?= $student['id'] ?>" hidden>
+                                    <input type="text" name='' placeholder="Sinh viên" value="<?= $student['name'] ?>" readonly>
                                 </div>
 
                                 <div class="right__inputWrapper">

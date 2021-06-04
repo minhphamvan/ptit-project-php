@@ -42,7 +42,8 @@ class UserController extends BaseController
             'name' => $_POST['name'],
             'username' => $_POST['username'],
             'password' => $_POST['password'],
-            'role' => $_POST['role'],
+            'email' => $_POST['email'],
+            'role' => $_POST['role']
         ];
 
         $this->userModel->addUser($data);
@@ -71,7 +72,8 @@ class UserController extends BaseController
             'name' => $_POST['name'],
             'username' => $_POST['username'],
             'password' => $_POST['password'],
-            'role' => $_POST['role'],
+            'email' => $_POST['email'],
+            'role' => $_POST['role']
         ];
 
         $this->userModel->updateUser($id, $data);

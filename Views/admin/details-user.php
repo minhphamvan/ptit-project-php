@@ -47,6 +47,11 @@
                                 </div>
 
                                 <div class="right__inputWrapper">
+                                    <label for="title">Email</label>
+                                    <input type="text" placeholder="Email" name="email" value="<?= $user['email'] ?>">
+                                </div>
+
+                                <div class="right__inputWrapper">
                                     <label for="title">Vai trò</label>
                                     <select id="role" name="role">
                                         <?php if($user['role'] == 'ADMIN') { ?>

@@ -18,7 +18,7 @@
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
                         
-                        <p class="right__desc"><?= $pageTitle ?></p>
+                        <p class="right__desc"><?= $pageTitle ?> : <?= $student['name'] ?></p>
 
                         <div class="right__table">
                             <div class="right__tableWrapper">
@@ -26,7 +26,6 @@
                                     <thead>
                                         <tr>
                                             <th>Mã</th>
-                                            <th>Mã môn học</th>
                                             <th>Môn học</th>
                                             <th>Điểm thi</th>
                                             
@@ -40,7 +39,6 @@
                                         
                                         <tr>
                                             <td data-label="Mã"><?= $e['id'] ?></td>
-                                            <td data-label="Mã môn học"><?= $e['id_subject'] ?></td>
                                             <td data-label="Môn học"><?= $e['name_subject'] ?></td>
                                             <td data-label="Điểm thi"><?= $e['result'] ?></td>
 

@@ -19,33 +19,22 @@
                         <div class="right__title">Bảng điều khiển</div>
                         <p class="right__desc"><?= $pageTitle ?></p>
                         <div class="right__formWrapper">
-                            <form action="/ptit-project-php/index.php?controller=student&action=update" method="post">
+                            <form action="/ptit-project-php/index.php?controller=exam&action=update" method="post">
                                 
                                 <div class="right__inputWrapper">
-                                    <label for="title">Mã</label>
-                                    <input type="text" name='id' placeholder="Mã" value="<?= $exam['id'] ?>" readonly>
+                                    <input type="text" name='id' placeholder="Mã" value="<?= $exam['id'] ?>" hidden>
                                 </div>
 
                                 <div class="right__inputWrapper">
-                                    <label for="title">Sinh viên</label>
-                                    <select id="select" name="id_student">
-
-                                        <?php foreach($students as $s): ?>
-                                        <option value="<?= $s['id']?>"><?= $s['name']?></option>
-                                        <?php endforeach; ?>
-
-                                    </select>
+                                    <label for="title">Họ tên</label>
+                                    <input type="text" name='id_student' placeholder="Sinh viên" value="<?= $exam['id_student'] ?>" hidden>
+                                    <input type="text" name='' placeholder="Sinh viên" value="<?= $student['name'] ?>">
                                 </div>
 
                                 <div class="right__inputWrapper">
                                     <label for="title">Môn học</label>
-                                    <select id="select" name="id_subject">
-
-                                        <?php foreach($subjects as $s): ?>
-                                        <option value="<?= $s['id']?>"><?= $s['name']?></option>
-                                        <?php endforeach; ?>
-
-                                    </select>
+                                    <input type="text" name='id_subject' placeholder="Điểm thi" value="<?= $exam['id_subject'] ?>" hidden>
+                                    <input type="text" name='' placeholder="Điểm thi" value="<?= $subject['name'] ?>">
                                 </div>
 
                                 <div class="right__inputWrapper">
@@ -58,7 +47,7 @@
                         </div>
 
                         <a href="/ptit-project-php/index.php?controller=exam&action=show" class="right__tableMore">
-                            Xem thống kê<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
+                            Xem tất cả thống kê<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                     </div>
                 </div>
 

@@ -28,7 +28,9 @@
                                             <th>Họ tên</th>
                                             <th>Tên đăng nhập</th>
                                             <th>Mật khẩu</th>
+                                            <th>Email</th>
                                             <th>Vai trò</th>
+
                                             <th>Chi tiết</th>
                                             <th>Sửa</th>
                                             <th>Xoá</th>
@@ -44,6 +46,7 @@
                                                 <td data-label="Họ tên"><?= $u['name'] ?></td>
                                                 <td data-label="Tên đăng nhập"><?= $u['username'] ?></td>
                                                 <td data-label="Mật khẩu"><?= $u['password'] ?></td>
+                                                <td data-label="Email"><?= $u['email'] ?></td>
                                                 <td data-label="Vai trò"><?= $u['role'] ?></td>
                                                 <td data-label="Chi tiết" class="right__iconTable">
                                                     <a href="/ptit-project-php/index.php?controller=user&action=details&id=<?= $u['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>

@@ -23,15 +23,31 @@ class  StudentController extends BaseController
     {
         $pageTitle = 'Xem tất cả sinh viên';
 
-        $majors = $this->majorModel->getAllMajor();
-
         $students = $this->studentModel->getAllStudent();
 
         return $this->view("admin.show-all-student", 
                             ['pageTitle' => $pageTitle,
-                            'students' => $students,
-                            'majors' => $majors
+                            'students' => $students
                             ]);
+    }
+
+    public function haveBirthday()
+    {
+        $pageTitle = 'Sinh nhật hôm nay';
+
+        $today = date("m-d");
+
+        $students = $this->studentModel->getAllStudentHaveBirthday($today);
+
+        return $this->view("admin.show-all-student-have-birthday", 
+                            ['pageTitle' => $pageTitle,
+                            'students' => $students
+                            ]);
+    }
+
+    public function export()
+    {  
+        $this->studentModel->export(); 
     }
 
     public function add()
@@ -103,6 +119,4 @@ class  StudentController extends BaseController
 
         header("Location: /ptit-project-php/index.php?controller=student&action=show");
     }
-
-    
 }

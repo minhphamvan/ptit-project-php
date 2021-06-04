@@ -101,7 +101,7 @@
                     <img src="Views/client/images/ptit.jpg" alt="IMG">
                 </div>
 
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" action="/ptit-project-php/index.php?controller=client&action=register_Post" method="post">
                     <span class="login100-form-title">
 						ĐĂNG KÍ
 					</span>
@@ -115,15 +115,15 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Tài khoản phải có dạng B18DCAT164@ptit.edu.vn">
-                        <input class="input100" type="text" name="email" placeholder="Tên đăng nhập">
+                        <input class="input100" type="text" name="username" placeholder="Tên đăng nhập">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
                     </div>
 
-                    <div class="wrap-input100 validate-input" data-validate="Bạn cần phải nhập mật khẩu">
-                        <input class="input100" type="password" name="pass" placeholder="Mật khẩu">
+                    <div class="wrap-input100 validate-input" data-validate="Bạn cần phải nhập email">
+                        <input class="input100" type="email" name="email" placeholder="Email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -131,7 +131,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Bạn cần phải nhập mật khẩu">
-                        <input class="input100" type="password" name="pass" placeholder="Nhập lại mật khẩu">
+                        <input class="input100" type="password" name="password" placeholder="Mật khẩu">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -139,7 +139,7 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
 							Đăng kí
 						</button>
                     </div>
