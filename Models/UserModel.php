@@ -40,5 +40,16 @@ class UserModel extends BaseModel {
     {
         return $this->count(self::TABLE);
     }
+
+    
+    public function resetPassword($username, $password, $email)
+    {
+        $sql = "UPDATE user SET password = '${password}' 
+                WHERE id = 
+                (SELECT id FROM user WHERE username = '${username}')
+                AND email = '${email}'";
+
+        return $this->_query($sql);
+    }
 }
 

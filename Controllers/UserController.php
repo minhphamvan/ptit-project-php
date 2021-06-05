@@ -88,6 +88,5 @@ class UserController extends BaseController
 
         header("Location: /ptit-project-php/index.php?controller=user&action=show");
     }
-
     
 }

@@ -23,7 +23,6 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Mã</th>
                                             <th>Mã sinh viên</th>
                                             <th>Họ tên</th>
                                             <th>Ngày sinh</th>
@@ -41,7 +40,6 @@
                                         <?php foreach($students as $s): ?>
                                         
                                         <tr>
-                                            <td data-label="Mã"><?= $s['id'] ?></td>
                                             <td data-label="Mã sinh viên"><?= $s['code'] ?></td>
                                             <td data-label="Họ tên"><?= $s['name'] ?></td>
 

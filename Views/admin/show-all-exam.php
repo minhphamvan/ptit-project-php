@@ -40,7 +40,7 @@
                                         <tr>
                                             <td data-label="Mã sinh viên">
                                                 <a href="/ptit-project-php/index.php?controller=student&action=details&id=<?= $e['id_student'] ?>">
-                                                    <?= $e['id_student'] ?>
+                                                    <?= $e['code_student'] ?>
                                                 </a>
                                             </td>
 

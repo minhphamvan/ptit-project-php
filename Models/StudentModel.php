@@ -52,6 +52,35 @@ class StudentModel extends BaseModel {
         return $this->count(self::TABLE);
     }
 
+    public function getAddress()
+    {
+        $sql = "SELECT DISTINCT address FROM student";
+
+        return $this->_getAllDataByQuery($sql);
+    }
+
+    public function countAddress()
+    {
+        $sql = "SELECT DISTINCT address FROM student";
+
+        $address = $this->_getAllDataByQuery($sql);
+
+        $data = array();
+
+        foreach($address as $a) {
+            $sql = "SELECT COUNT(*) AS count_address
+                    FROM student
+                    WHERE address = '${a['address']}'";
+            $query = $this->_query($sql);
+
+            $count_address = mysqli_fetch_array($query)[0];
+            
+            array_push($data, $count_address);
+        }
+
+        return $data;
+    }
+
     public function export()
     {
         $sql = "SELECT student.id, student.code, student.name, 

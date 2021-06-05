@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>PTIT - Học viện Công nghệ Bưu chính viễn thông</title>
+    <title><?= $pageTitle ?></title>
 
     <!-- Google Font -->
     <link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700,800' rel='stylesheet' type='text/css'>
@@ -247,23 +247,23 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="single_count">
-                                        <i class="icon-toolbox"></i>
-                                        <h3>3</h3>
-                                        <p>Cơ sở đào tạo</p>
+                                        <i class="icon-telescope"></i>
+                                        <h3><?= $numberDepartment ?>+</h3>
+                                        <p>Khoa</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="single_count">
-                                        <i class="icon-clock"></i>
-                                        <h3>800</h3>
-                                        <p>Cán bộ nhân viên</p>
+                                        <i class="icon-documents"></i>
+                                        <h3><?= $numberMajor ?>+</h3>
+                                        <p>Ngành</p>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="single_count">
-                                        <i class="icon-trophy"></i>
-                                        <h3>3500+</h3>
-                                        <p>Sinh viên nhập học / năm</p>
+                                        <i class="icon-lightbulb"></i>
+                                        <h3><?= $numberStudent ?>+</h3>
+                                        <p>Sinh viên</p>
                                     </div>
                                 </div>
                             </div>
@@ -406,11 +406,11 @@
                 <div class="col-md-3  wow fadeInLeft animated">
                     <div class="single_contact_info">
                         <h2>Hotline</h2>
-                        <p>+88 6666.8688</p>
+                        <p>+88 6666.8888</p>
                     </div>
                     <div class="single_contact_info">
                         <h2>Email</h2>
-                        <p>online-support@ptit.edu.vn</p>
+                        <p>minhpv.b18at164@ptit.edu.vn</p>
                     </div>
                     <div class="single_contact_info">
                         <h2>Địa chỉ</h2>

@@ -1,14 +1,12 @@
 <?php
 
-// require_once "Classes/PHPExcel.php";
-
 class ExamModel extends BaseModel {
 
     const TABLE = "exam";
 
     public function getAllExam()
     {
-        $sql = "SELECT student.id AS id_student, student.name AS name_student, COUNT(*) AS count_subject FROM exam, student 
+        $sql = "SELECT id_student, student.code AS code_student, student.name AS name_student, COUNT(*) AS count_subject FROM exam, student 
         WHERE exam.id_student = student.id 
         GROUP BY student.id";
         
@@ -64,7 +62,7 @@ class ExamModel extends BaseModel {
 
     public function export()
     {
-        $sql = "SELECT student.id AS id_student, student.name AS name_student, COUNT(*) AS count_subject FROM exam, student 
+        $sql = "SELECT student.id AS id_student, student.code AS code_student, student.name AS name_student, COUNT(*) AS count_subject FROM exam, student 
         WHERE exam.id_student = student.id 
         GROUP BY student.id";
         
@@ -84,7 +82,7 @@ class ExamModel extends BaseModel {
             while($row = mysqli_fetch_array($result))
             {
                 $output .= '<tr>  
-                                <td style="border: 1px solid black; text-align: center; font-size: 16px;">'.$row["id_student"].'</td>  
+                                <td style="border: 1px solid black; text-align: center; font-size: 16px;">'.$row["code_student"].'</td>  
                                 <td style="border: 1px solid black; text-align: center; font-size: 16px;">'.$row["name_student"].'</td>  
                                 <td style="border: 1px solid black; text-align: center; font-size: 16px;">'.$row["count_subject"].'</td>  
                             </tr>';

@@ -110,7 +110,7 @@
                         <input class="input100" type="text" name="name" placeholder="Họ tên">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-							<i class="fa fa-user" aria-hidden="true"></i>
+							<i class="fa fa-address-card-o" aria-hidden="true"></i>
 						</span>
                     </div>
 
@@ -118,7 +118,7 @@
                         <input class="input100" type="text" name="username" placeholder="Tên đăng nhập">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<i class="fa fa-user-o" aria-hidden="true"></i>
 						</span>
                     </div>
 
@@ -126,7 +126,7 @@
                         <input class="input100" type="email" name="email" placeholder="Email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
+							<i class="fa fa-envelope-open-o" aria-hidden="true"></i>
 						</span>
                     </div>
 
@@ -134,7 +134,7 @@
                         <input class="input100" type="password" name="password" placeholder="Mật khẩu">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
+							<i class="fa fa-key" aria-hidden="true"></i>
 						</span>
                     </div>
 

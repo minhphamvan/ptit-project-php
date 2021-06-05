@@ -53,4 +53,19 @@ class DashboardController extends BaseController
                             'users' => $users
                             ]);
     }
+
+    public function chart()
+    {
+        $pageTitle = "Biểu đồ";
+
+        $address = $this->studentModel->getAddress();
+        $count_address = $this->studentModel->countAddress();
+
+        return $this->view("admin.chart", [
+                            'pageTitle' => $pageTitle,
+                            'address' => $address,
+                            'count_address' => $count_address
+                            ]);
+    }
+
 }

@@ -36,13 +36,28 @@ class  StudentController extends BaseController
         $pageTitle = 'Sinh nhật hôm nay';
 
         $today = date("m-d");
-
         $students = $this->studentModel->getAllStudentHaveBirthday($today);
 
         return $this->view("admin.show-all-student-have-birthday", 
                             ['pageTitle' => $pageTitle,
                             'students' => $students
                             ]);
+    }
+
+    public function sendMail()
+    {
+        $today = date("m-d");
+        $students = $this->studentModel->getAllStudentHaveBirthday($today);
+
+        foreach($students as $s){
+            $to_email = $s['email'];
+            $subject = 'PTIT - Chúc mừng sinh nhật';
+            $message = 'Chúc ' . $s['name'] .' có một ngày sinh nhật vui vẻ !!';
+            $headers = 'From: ptit-university@ptit.edu.vn';
+            $sent_mail = mail($to_email, $subject, $message, $headers);
+        }
+
+        header("Location: /ptit-project-php/index.php?controller=student&action=show");
     }
 
     public function export()
@@ -75,7 +90,7 @@ class  StudentController extends BaseController
 
         $this->studentModel->addStudent($data);
 
-        header("Location: /ptit-project-php/index.php?controller=student&action=show"); // Redirect
+        header("Location: /ptit-project-php/index.php?controller=student&action=show");
     }
 
     public function details()
