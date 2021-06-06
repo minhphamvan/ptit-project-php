@@ -84,5 +84,10 @@ class DepartmentController extends BaseController
         header("Location: /ptit-project-php/index.php?controller=department&action=show");
     }
 
-    
+    public function search()
+    {
+        $name = $_POST['data'];
+        
+        $this->departmentModel->searchDepartment($name);
+    }
 }

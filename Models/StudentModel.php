@@ -125,14 +125,14 @@ class StudentModel extends BaseModel {
         }
     }
 
-    public function searchStudent($student_name)
+    public function searchStudent($name)
     {
         $sql = "SELECT student.id, student.code, student.name, 
                 student.birthday, student.address,
                 student.email, major.name AS name_major 
                 FROM student, major 
                 WHERE student.id_major = major.id
-                AND student.name LIKE '%${student_name}%'";
+                AND student.name LIKE '%${name}%'";
 
         $students = $this->_query($sql);
 

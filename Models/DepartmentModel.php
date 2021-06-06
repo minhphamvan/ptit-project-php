@@ -33,5 +33,34 @@ class DepartmentModel extends BaseModel {
     {
         return $this->count(self::TABLE);
     }
+
+    public function searchDepartment($name)
+    {
+        $sql = "SELECT * FROM department
+                WHERE name LIKE '%${name}%'";
+
+        $departments = $this->_query($sql);
+
+        while($d = mysqli_fetch_array($departments)){ 
+        ?>
+            <tr>
+                <td data-label="Mã khoa"><?= $d['id'] ?></td>
+                <td data-label="Tên khoa"><?= $d['name'] ?></td>
+                <td data-label="Mô tả"><?= $d['description'] ?></td>
+                <td data-label="Chi tiết" class="right__iconTable">
+                    <a href="/ptit-project-php/index.php?controller=department&action=details&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
+                </td>
+                <td data-label="Sửa" class="right__iconTable">
+                    <a href="/ptit-project-php/index.php?controller=department&action=details&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
+                </td>
+                <td data-label="Xoá" class="right__iconTable">
+                    <a href="/ptit-project-php/index.php?controller=department&action=delete&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
+                </td>
+            </tr>
+            
+        <?php
+        }
+    }
 }
+?>
 

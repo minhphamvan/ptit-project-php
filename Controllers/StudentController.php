@@ -137,8 +137,8 @@ class  StudentController extends BaseController
 
     public function search()
     {
-        $name_student = $_POST['data'];
+        $name = $_POST['data'];
         
-        $this->studentModel->searchStudent($name_student);
+        $this->studentModel->searchStudent($name);
     }
 }
