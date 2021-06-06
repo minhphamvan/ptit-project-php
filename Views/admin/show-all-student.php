@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $pageTitle ?></title>
     <link rel="stylesheet" href="Views/admin/css/main.css">
+
+    
 </head>
 
 <body>
@@ -17,7 +19,14 @@
                 <div class="right">
                     <div class="right__content">
                         <div class="right__title">Bảng điều khiển</div>
-                        <p class="right__desc"><?= $pageTitle ?></p>
+                        <p class="right__desc" style="float: left; display: block;"><?= $pageTitle ?></p>
+
+                        <input type="text" class="timkiem" placeholder="Tìm kiếm theo tên" style="float: right; 
+                        border: 1px solid grey; border-radius: 5px; height: 21px; 
+                        padding: 2px 23px 2px 30px;
+                        margin-bottom: 20px;
+                        font-size: 17px; font-family: "Muli", sans-serif;">
+
                         <div class="right__table">
                             <div class="right__tableWrapper">
                                 <table>
@@ -36,7 +45,7 @@
                                         </tr>
                                     </thead>
 
-                                    <tbody>
+                                    <tbody class="danhsach">
                                         <?php foreach($students as $s): ?>
                                         
                                         <tr>
@@ -85,6 +94,19 @@
     </div>
 
     <script src="Views/admin/js/main.js"></script>
+    
+    <script src="//code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('.timkiem').keyup(function(){
+                var txt = $('.timkiem').val();
+                $.post('/ptit-project-php/index.php?controller=student&action=search', {data: txt}, function(data){
+                    $('.danhsach').html(data);
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>

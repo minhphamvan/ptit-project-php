@@ -134,4 +134,11 @@ class  StudentController extends BaseController
 
         header("Location: /ptit-project-php/index.php?controller=student&action=show");
     }
+
+    public function search()
+    {
+        $name_student = $_POST['data'];
+        
+        $this->studentModel->searchStudent($name_student);
+    }
 }

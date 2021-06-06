@@ -124,5 +124,44 @@ class StudentModel extends BaseModel {
             echo chr(255).chr(254).iconv("UTF-8", "UTF-16LE//IGNORE", $output);
         }
     }
-}
 
+    public function searchStudent($student_name)
+    {
+        $sql = "SELECT student.id, student.code, student.name, 
+                student.birthday, student.address,
+                student.email, major.name AS name_major 
+                FROM student, major 
+                WHERE student.id_major = major.id
+                AND student.name LIKE '%${student_name}%'";
+
+        $students = $this->_query($sql);
+
+        while($s = mysqli_fetch_array($students)){ 
+        ?>
+            <tr>
+                <td data-label="Mã sinh viên"><?= $s['code'] ?></td>
+                <td data-label="Họ tên"><?= $s['name'] ?></td>
+
+                <?php $date = date_create($s['birthday']); ?>
+                <td data-label="Ngày sinh"><?= date_format($date,"d/m/Y") ?></td>
+                
+                <td data-label="Địa chỉ"><?= $s['address'] ?></td>
+                <td data-label="Email"><?= $s['email'] ?></td>
+                <td data-label="Thuộc ngành"><?= $s['name_major'] ?></td>
+
+                <td data-label="Chi tiết" class="right__iconTable">
+                    <a href="/ptit-project-php/index.php?controller=student&action=details&id=<?= $s['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
+                </td>
+                <td data-label="Sửa" class="right__iconTable">
+                    <a href="/ptit-project-php/index.php?controller=student&action=details&id=<?= $s['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
+                </td>
+                <td data-label="Xoá" class="right__iconTable">
+                    <a href="/ptit-project-php/index.php?controller=student&action=delete&id=<?= $s['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
+                </td>
+            </tr>
+            
+        <?php
+        }
+    }
+}
+?>
