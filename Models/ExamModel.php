@@ -28,7 +28,15 @@ class ExamModel extends BaseModel {
                 WHERE student.id NOT IN
                 (SELECT DISTINCT id_student FROM exam)";
 
-        return $this->_getAllDataByQuery($sql); 
+        $data = $this->_getAllDataByQuery($sql);
+
+        if($data != null){
+            return $data;
+        } else{
+            $sql2 = "SELECT * FROM student";
+
+            return $this->_getAllDataByQuery($sql2);
+        }
     }
 
     public function getExamById($id)

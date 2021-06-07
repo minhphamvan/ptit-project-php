@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class ClientController extends BaseController
 {
     private $userModel;
@@ -30,7 +32,7 @@ class ClientController extends BaseController
 
     public function home()
     {
-        $pageTitle = "Trang chủ";
+        $pageTitle = "PTIT - Trang chủ";
 
         $numberDepartment = $this->departmentModel->countDepartment();
         $numberMajor = $this->majorModel->countMajor();
@@ -46,7 +48,7 @@ class ClientController extends BaseController
 
     public function register()
     {
-        $pageTitle = "Đăng kí";
+        $pageTitle = "PTIT - Đăng kí";
 
         return $this->view("client.register", [
                             'pageTitle' => $pageTitle
@@ -72,21 +74,57 @@ class ClientController extends BaseController
 
     public function login()
     {
-        $pageTitle = "Đăng nhập";
+        if(isset($_SESSION["userLogin"])){
+            $userLogin = $_SESSION["userLogin"];
 
-        return $this->view("client.login", [
-                            'pageTitle' => $pageTitle
-                            ]);
+            if($userLogin['role'] == 'ADMIN'){
+                header("Location: /ptit-project-php/index.php?controller=dashboard");
+            }
+            else if ($userLogin['role'] == 'USER') {
+                header("Location: /ptit-project-php/index.php?controller=client&action=home");
+            }
+        } else{
+            $pageTitle = "PTIT - Đăng nhập";
+
+            return $this->view("client.login", [
+                                'pageTitle' => $pageTitle
+                                ]);
+        }
     }
 
     public function login_Post()
     {
-        return $this->view("client.login");
+        if(isset($_POST['username']) && isset($_POST['password'])){
+            $username = $_POST['username'];
+            $password = $_POST['password'];
+
+            $userLogin = $this->userModel->getUserLogin($username, $password);
+
+            if($userLogin == null){
+                header("Location: /ptit-project-php/index.php?controller=client&action=login");
+            }else{
+                $_SESSION["userLogin"] = $userLogin;
+
+                if($userLogin['role'] == 'ADMIN'){
+                    header("Location: /ptit-project-php/index.php?controller=dashboard");
+                }
+                else if ($userLogin['role'] == 'USER') {
+                    header("Location: /ptit-project-php/index.php?controller=client&action=home");
+                }
+            }
+        }
+    }
+
+    public function logout()
+    {
+        session_unset();
+
+        header("Location: /ptit-project-php/index.php?controller=client&action=login");
     }
 
     public function forgotPassword()
     {
-        $pageTitle = "Quên mật khẩu";
+        $pageTitle = "PTIT - Quên mật khẩu";
 
         return $this->view("client.forgot-password", [
                             'pageTitle' => $pageTitle

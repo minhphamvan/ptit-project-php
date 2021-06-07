@@ -12,5 +12,4 @@ $actionName = strtolower($_REQUEST['action'] ?? 'index');
 require "./Controllers/${controllerName}.php";
 
 $controllerObject = new $controllerName;
-
 $controllerObject->$actionName();

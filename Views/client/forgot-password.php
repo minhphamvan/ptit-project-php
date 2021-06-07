@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>PTIT - Quên mật khẩu</title>
+    <title><?= $pageTitle ?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -70,20 +70,21 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                  </button>
-                        <a class="navbar-brand" href="index.html"><img src="Views/client/images/logo_ptit.png" alt="PTIT"></a>
+                        <a class="navbar-brand" href="./index.php?controller=client"><img src="Views/client/images/logo_ptit.png" alt="PTIT"></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/index.html">Trang chủ</a></li>
-                            <li><a href="/index.html">Giới thiệu</a></li>
-                            <li><a href="/index.html">Giáo dục & Đào tạo</a></li>
-                            <li><a href="/index.html">Mục tiêu</a></li>
-                            <li><a href="/index.html">Tin tức </a></li>
-                            <li><a href="/index.html">Hỗ trợ</a></li>
-                            <li><a href="/login.html">Đăng nhập</a></li>
-                            <li><a href="/register.html">Đăng kí</a></li>
+                            <li><a href="./index.php?controller=client">Trang chủ</a></li>
+                            <li><a href="./index.php?controller=client">Giới thiệu</a></li>
+                            <li><a href="./index.php?controller=client">Giáo dục & Đào tạo</a></li>
+                            <li><a href="./index.php?controller=client">Mục tiêu</a></li>
+                            <li><a href="./index.php?controller=client">Tin tức </a></li>
+                            <li><a href="./index.php?controller=client">Hỗ trợ</a></li>
+                            <li><a href="./index.php?controller=client&action=login">Đăng nhập</a></li>
+                            <li><a href="./index.php?controller=client&action=register">Đăng kí</a></li>
+                            <li><a href="./index.php?controller=client&action=forgotPassword">Quên mật khẩu</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -130,10 +131,10 @@
                     </div>
 
                     <div class="text-center p-t-12">
-                        <a class="txt2" href="/login.html">
+                        <a class="txt2" href="./index.php?controller=client&action=login">
 							Đăng nhập
 						</a> /
-                        <a class="txt2" href="/register.html">
+                        <a class="txt2" href="./index.php?controller=client&action=register">
 							Tạo tài khoản mới
 						</a>
                     </div>

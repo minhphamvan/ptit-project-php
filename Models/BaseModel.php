@@ -1,7 +1,6 @@
 <?php
 
 class BaseModel extends Database {
-
     protected $connect;
 
     public function __construct()
@@ -35,25 +34,12 @@ class BaseModel extends Database {
         return mysqli_fetch_assoc($query);
     }
 
-    public function getAll($table)
-    {
-        $sql = "SELECT * FROM ${table}";
-
-        return $this->_getAllDataByQuery($sql);
-    }
-
-    public function getById($table, $id)
-    {
-        $sql = "SELECT * FROM ${table} WHERE id = ${id} LIMIT 1";
-        $query = $this->_query($sql);
-
-        return mysqli_fetch_assoc($query);
-    }
-
+    // add - update - delete - getAll - getById - count
+    
     public function add($table, $data)
     {
         $columns  = implode(',', array_keys($data));
-        $newValues = array_map(function($values) {
+        $newValues = array_map(function($values){
             return "'" . $values . "'";
         }, array_values($data));
 
@@ -81,6 +67,21 @@ class BaseModel extends Database {
     {
         $sql = "DELETE FROM ${table} WHERE id = ${id}";
         $this->_query($sql);
+    }
+
+    public function getAll($table)
+    {
+        $sql = "SELECT * FROM ${table}";
+
+        return $this->_getAllDataByQuery($sql);
+    }
+
+    public function getById($table, $id)
+    {
+        $sql = "SELECT * FROM ${table} WHERE id = ${id} LIMIT 1";
+        $query = $this->_query($sql);
+
+        return mysqli_fetch_assoc($query);
     }
     
     public function count($table)

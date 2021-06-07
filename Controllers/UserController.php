@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class UserController extends BaseController
 {
     private $userModel;
@@ -8,6 +10,10 @@ class UserController extends BaseController
     {
         $this->loadModel('UserModel');
         $this->userModel = new UserModel;
+
+        if(isset($_SESSION["userLogin"]) == false){
+            header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        }
     }
 
     public function index()
@@ -88,5 +94,4 @@ class UserController extends BaseController
 
         header("Location: /ptit-project-php/index.php?controller=user&action=show");
     }
-    
 }

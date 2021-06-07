@@ -1,3 +1,7 @@
+<? php
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,14 +70,31 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#TRANGCHU">Trang chủ</a></li>
+                            <li><a href="./index.php?controller=client">Trang chủ</a></li>
                             <li><a href="#GIOITHIEU">Giới thiệu</a></li>
                             <li><a href="#GIAODUCDAOTAO">Giáo dục & Đào tạo</a></li>
                             <li><a href="#MUCTIEU">Mục tiêu</a></li>
                             <li><a href="#TINTUC">Tin tức </a></li>
                             <li><a href="#HOTRO">Hỗ trợ</a></li>
-                            <li><a href="./index.php?controller=client&action=login">Đăng nhập</a></li>
-                            <li><a href="./index.php?controller=client&action=register">Đăng kí</a></li>
+
+                            <?php if (isset($_SESSION["userLogin"]) == false) { ?>
+                                    <li><a href="./index.php?controller=client&action=login">Đăng nhập</a></li>
+                                    <li><a href="./index.php?controller=client&action=register">Đăng kí</a></li>
+                                    <li><a href="./index.php?controller=client&action=forgotPassword">Quên mật khẩu</a></li>
+                            <?php } else { 
+                                        $userLogin = $_SESSION["userLogin"];
+
+                                        if ($userLogin['role'] == "ADMIN") { ?>
+                                            <li><a href="./index.php?controller=dashboard">Trang quản trị</a></li>
+                                            <li><a href="./index.php?controller=client&action=logout">Đăng xuất</a></li>
+                                        <?php 
+                                        } else if ($userLogin['role'] == "USER") { ?>
+                                            <li><a href=""><?= $userLogin['name'] ?></a></li>
+                                            <li><a href="./index.php?controller=client&action=logout">Đăng xuất</a></li>     
+                                    <?php 
+                                        } 
+                                    }
+                                    ?>
                         </ul>
                     </div>
                 </div>

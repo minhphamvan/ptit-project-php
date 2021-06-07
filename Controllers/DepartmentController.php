@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class DepartmentController extends BaseController
 {
     private $departmentModel;
@@ -8,6 +10,10 @@ class DepartmentController extends BaseController
     {
         $this->loadModel('DepartmentModel');
         $this->departmentModel = new DepartmentModel;
+
+        if(isset($_SESSION["userLogin"]) == false){
+            header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        }
     }
 
     public function index()

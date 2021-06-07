@@ -1,7 +1,8 @@
 <?php
 
-class DashboardController extends BaseController
-{
+session_start();
+
+class DashboardController extends BaseController{
 
     private $departmentModel;
     private $majorModel;
@@ -26,6 +27,10 @@ class DashboardController extends BaseController
 
         $this->loadModel('UserModel');
         $this->userModel = new UserModel;
+
+        if(isset($_SESSION["userLogin"]) == false){
+            header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        }
     }
 
     public function index()

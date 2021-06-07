@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class SubjectController extends BaseController
 {
     private $subjectModel;
@@ -8,6 +10,10 @@ class SubjectController extends BaseController
     {
         $this->loadModel('SubjectModel');
         $this->subjectModel = new SubjectModel;
+
+        if(isset($_SESSION["userLogin"]) == false){
+            header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        }
     }
 
     public function index()

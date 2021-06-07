@@ -57,13 +57,13 @@
                                                 <td data-label="Email"><?= $u['email'] ?></td>
                                                 <td data-label="Vai trò"><?= $u['role'] ?></td>
                                                 <td data-label="Chi tiết" class="right__iconTable">
-                                                    <a href="/ptit-project-php/index.php?controller=user&action=details&id=<?= $u['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
+                                                    <a href="./index.php?controller=user&action=details&id=<?= $u['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
                                                 </td>
                                                 <td data-label="Sửa" class="right__iconTable">
-                                                    <a href="/ptit-project-php/index.php?controller=user&action=details&id=<?= $u['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
+                                                    <a href="./index.php?controller=user&action=details&id=<?= $u['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
                                                 </td>
                                                 <td data-label="Xoá" class="right__iconTable">
-                                                    <a href="/ptit-project-php/index.php?controller=user&action=delete&id=<?= $u['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
+                                                    <a href="./index.php?controller=user&action=delete&id=<?= $u['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
                                                 </td>
                                             </tr>
                                         

@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 class  ExamController extends BaseController
 {
     private $examModel;
@@ -21,6 +23,10 @@ class  ExamController extends BaseController
 
         $this->loadModel('SubjectModel');
         $this->subjectModel = new SubjectModel;
+
+        if(isset($_SESSION["userLogin"]) == false){
+            header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        }
     }
 
     public function index()
@@ -53,10 +59,10 @@ class  ExamController extends BaseController
         $subjects = $this->subjectModel->getAllSubject();
 
         return $this->view("admin.add-exam", [
-            'pageTitle' => $pageTitle,
-            'students' => $students,
-            'subjects' => $subjects
-        ]);
+                            'pageTitle' => $pageTitle,
+                            'students' => $students,
+                            'subjects' => $subjects
+                        ]);
     }
 
     public function add_Post()

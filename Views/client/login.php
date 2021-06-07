@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>PTIT - Đăng nhập</title>
+    <title><?= $pageTitle ?></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -70,20 +70,21 @@
 	                    <span class="icon-bar"></span>
 	                    <span class="icon-bar"></span>
 	                  </button>
-                        <a class="navbar-brand" href="index.html"><img src="Views/client/images/logo_ptit.png" alt="PTIT"></a>
+                        <a class="navbar-brand" href="./index.php?controller=client"><img src="Views/client/images/logo_ptit.png" alt="PTIT"></a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="/index.html">Trang chủ</a></li>
-                            <li><a href="/index.html">Giới thiệu</a></li>
-                            <li><a href="/index.html">Giáo dục & Đào tạo</a></li>
-                            <li><a href="/index.html">Mục tiêu</a></li>
-                            <li><a href="/index.html">Tin tức </a></li>
-                            <li><a href="/index.html">Hỗ trợ</a></li>
-                            <li><a href="/login.html">Đăng nhập</a></li>
-                            <li><a href="/register.html">Đăng kí</a></li>
+                            <li><a href="./index.php?controller=client">Trang chủ</a></li>
+                            <li><a href="./index.php?controller=client">Giới thiệu</a></li>
+                            <li><a href="./index.php?controller=client">Giáo dục & Đào tạo</a></li>
+                            <li><a href="./index.php?controller=client">Mục tiêu</a></li>
+                            <li><a href="./index.php?controller=client">Tin tức </a></li>
+                            <li><a href="./index.php?controller=client">Hỗ trợ</a></li>
+                            <li><a href="./index.php?controller=client&action=login">Đăng nhập</a></li>
+                            <li><a href="./index.php?controller=client&action=register">Đăng kí</a></li>
+                            <li><a href="./index.php?controller=client&action=forgotPassword">Quên mật khẩu</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -102,13 +103,13 @@
                     <img src="Views/client/images/ptit.jpg" alt="PTIT">
                 </div>
 
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" action="/ptit-project-php/index.php?controller=client&action=login_Post" method="post">
                     <span class="login100-form-title">
 						ĐĂNG NHẬP
 					</span>
 
-                    <div class="wrap-input100 validate-input" data-validate="Tài khoản phải có dạng B18DCAT164@ptit.edu.vn">
-                        <input class="input100" type="text" name="email" placeholder="Tên đăng nhập">
+                    <div class="wrap-input100 validate-input" data-validate="Bạn cần phải nhập tên đăng nhập">
+                        <input class="input100" type="text" name="username" placeholder="Tên đăng nhập">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -116,7 +117,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input" data-validate="Bạn cần phải nhập mật khẩu">
-                        <input class="input100" type="password" name="pass" placeholder="Mật khẩu">
+                        <input class="input100" type="password" name="password" placeholder="Mật khẩu">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -124,23 +125,23 @@
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
 							Đăng nhập
 						</button>
                     </div>
 
                     <div class="text-center p-t-12">
-                        <a class="txt2" href="/forgot-password.html">
+                        <a class="txt2" href="./index.php?controller=client&action=forgotPassword">
 							Quên mật khẩu?
 						</a>/
-                        <a class="txt2" href="/register.html">
+                        <a class="txt2" href="./index.php?controller=client&action=register">
 							Tạo tài khoản mới
 						</a>
                     </div>
 
                     <div class="text-center p-t-78">
 
-                        <a class="txt2" href="/index.html">
+                        <a class="txt2" href="./index.php?controller=client">
 							Quay về Trang chủ
 						</a>
                         <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
