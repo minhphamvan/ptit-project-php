@@ -31,40 +31,52 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>Mã khoa</th>
-                                            <th>Tên khoa</th>
-                                            <th>Mô tả</th>
-                                            <th>Chi tiết</th>
-                                            <th>Sửa</th>
+                                            <th>Mã</th>
+                                            <th>Tên ảnh</th>
+                                            <th>Hình ảnh</th>
+                                            
+                                            <th>Chọn</th>
                                             <th>Xoá</th>
                                         </tr>
                                     </thead>
 
                                     <tbody class="danhsach">
-                                        <?php foreach($departments as $d): ?>
+                                        <?php foreach($images as $i): ?>
                                         
                                         <tr>
-                                            <td data-label="Mã khoa"><?= $d['id'] ?></td>
-                                            <td data-label="Tên khoa"><?= $d['name'] ?></td>
-                                            <td data-label="Mô tả"><?= $d['description'] ?></td>
-                                            <td data-label="Chi tiết" class="right__iconTable">
-                                                <a href="/ptit-project-php/index.php?controller=department&action=details&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-book.svg" alt=""></a>
-                                            </td>
-                                            <td data-label="Sửa" class="right__iconTable">
-                                                <a href="/ptit-project-php/index.php?controller=department&action=details&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-edit.svg" alt=""></a>
-                                            </td>
+                                            <td data-label="Mã"><?= $i['id'] ?></td>
+                                            <td data-label="Tên ảnh"><?= $i['name'] ?></td>
+                                            <td data-label="Hình ảnh"><img src="<?= $i['path'] ?>" style="width: 100px; "></td>
+                                                <?php if($i['choose'] == 1) { ?>
+                                                    <td data-label="Chọn">
+                                                        <a href="/ptit-project-php/index.php?controller=dashboard&action=updateImageForHome&id=<?= $i['id']?>" class="right__iconTable">
+                                                            <img src="Views/admin/assets/icon-check.svg">
+                                                        </a>
+                                                    </td>
+                                                <?php } else { ?>
+                                                    <td data-label="Chọn">
+                                                        <a href="/ptit-project-php/index.php?controller=dashboard&action=updateImageForHome&id=<?= $i['id']?>" class="right__iconTable">
+                                                            <img src="Views/admin/assets/icon-pencil.svg">
+                                                        </a>
+                                                    </td>
+                                                <?php }
+                                                ?>
+
                                             <td data-label="Xoá" class="right__iconTable">
-                                                <a href="/ptit-project-php/index.php?controller=department&action=delete&id=<?= $d['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
-                                            </td>
+                                                <a href="/ptit-project-php/index.php?controller=dashboard&action=deleteImage&id=<?= $i['id'] ?>"><img src="Views/admin/assets/icon-trash-black.svg" alt=""></a>
+                                            </td>   
                                         </tr>
 
                                         <?php endforeach; ?>
                                     </tbody>
                                 </table>
-
-                                <a href="/ptit-project-php/index.php?controller=department&action=add" class="right__tableMore" style="width: 550px; padding-top: 15px;">
-                                    Thêm khoa<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
+                                
+                                <a href="/ptit-project-php/index.php?controller=dashboard&action=addImage" class="right__tableMore" style="width: 550px; padding-top: 15px;">
+                                    Thêm ảnh<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
+
+                            
+
                         </div>
                     </div>
                 </div>
@@ -84,9 +96,11 @@
                 $.post('/ptit-project-php/index.php?controller=department&action=search', {data: txt}, function(data){
                     $('.danhsach').html(data);
                 })
-            })
+            });
+            
         })
     </script>
+
 </body>
 
 </html>

@@ -13,6 +13,12 @@ class SubjectController extends BaseController
 
         if(isset($_SESSION["userLogin"]) == false){
             header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        } else {
+            $userLogin =$_SESSION["userLogin"];
+
+            if($userLogin['role'] == "USER"){
+                header("Location: /ptit-project-php/index.php?controller=client");
+            }
         }
     }
 
@@ -52,7 +58,12 @@ class SubjectController extends BaseController
 
         $this->subjectModel->addSubject($data);
 
-        header("Location: /ptit-project-php/index.php?controller=subject&action=show"); // Redirect
+        $message = "Thêm thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=subject&action=show";
+            </script> ';
     }
 
     public function details()
@@ -80,7 +91,12 @@ class SubjectController extends BaseController
 
         $this->subjectModel->updateSubject($id, $data);
 
-        header("Location: /ptit-project-php/index.php?controller=subject&action=show");
+        $message = "Sửa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=subject&action=show";
+            </script> ';
     }
 
     public function delete()
@@ -88,7 +104,12 @@ class SubjectController extends BaseController
         $id = $_GET['id'];   
         $this->subjectModel->deleteSubject($id); 
 
-        header("Location: /ptit-project-php/index.php?controller=subject&action=show");
+        $message = "Xóa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=subject&action=show";
+            </script> ';
     }
 
     

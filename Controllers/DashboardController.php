@@ -11,6 +11,8 @@ class DashboardController extends BaseController{
 
     private $userModel;
 
+    private $imageModel;
+
     public function __construct()
     {
         $this->loadModel('DepartmentModel');
@@ -28,8 +30,17 @@ class DashboardController extends BaseController{
         $this->loadModel('UserModel');
         $this->userModel = new UserModel;
 
+        $this->loadModel('ImageModel');
+        $this->imageModel = new ImageModel;
+
         if(isset($_SESSION["userLogin"]) == false){
             header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        } else {
+            $userLogin =$_SESSION["userLogin"];
+
+            if($userLogin['role'] == "USER"){
+                header("Location: /ptit-project-php/index.php?controller=client");
+            }
         }
     }
 
@@ -73,4 +84,79 @@ class DashboardController extends BaseController{
                             ]);
     }
 
+    public function addImage()
+    {
+        $pageTitle = "Thêm ảnh";
+
+        return $this->view("admin.add-image", [
+                            'pageTitle' => $pageTitle
+                            ]);
+    }
+
+    public function addImage_Post()
+    {
+        $temp = explode(".", $_FILES["image_file"]["name"]);
+        $image_name = round(microtime(true)) . '.' . end($temp);
+
+        $path = './Views/client/images/image-for-home/' . $image_name;
+
+        $check  = move_uploaded_file($_FILES['image_file']['tmp_name'], $path);
+
+        if($check == true){
+            $data = ['name' => $image_name,
+                        'path' => $path,
+                        'choose' => false
+                    ];
+
+            $this->imageModel->addImage($data);
+
+            $message = "Upload ảnh thành công !";
+
+            echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=dashboard&action=showAllImage";
+            </script> ';
+        }                
+    }
+
+    public function deleteImage()
+    {
+        $id = $_GET['id'];   
+        $this->imageModel->deleteImage($id); 
+
+        $message = "Xóa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=dashboard&action=showAllImage";
+            </script> ';
+    }
+
+    public function showAllImage()
+    {
+        $pageTitle = "Xem tất cả ảnh";
+
+        $images = $this->imageModel->getAllImage();
+
+        return $this->view("admin.show-all-image", [
+                            'pageTitle' => $pageTitle,
+                            'images' => $images
+                            ]);
+    }
+
+    public function updateImageForHome()
+    {
+        $id_image = $_GET['id'];
+
+        $this->imageModel->updateImageForHome($id_image);
+
+        $message = "Cập nhật thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=dashboard&action=showAllImage";
+            </script> ';
+    }
+                                    
 }
+?>

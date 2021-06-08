@@ -71,7 +71,7 @@
                                     </tbody>
                                 </table>
 
-                                <a href="/ptit-project-php/index.php?controller=user&action=add" class="right__tableMore">
+                                <a href="/ptit-project-php/index.php?controller=user&action=add" class="right__tableMore" style="width: 550px; padding-top: 15px;">
                                     Thêm người dùng<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
                         </div>

@@ -26,6 +26,12 @@ class  ExamController extends BaseController
 
         if(isset($_SESSION["userLogin"]) == false){
             header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        } else {
+            $userLogin =$_SESSION["userLogin"];
+
+            if($userLogin['role'] == "USER"){
+                header("Location: /ptit-project-php/index.php?controller=client");
+            }
         }
     }
 

@@ -1,5 +1,7 @@
 <? php
     session_start();
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -291,7 +293,16 @@
                         </div>
                         <div class="col-md-5 col-md-offset-1 wow fadeInRight animated">
                             <div class="imac">
-                                <img src="Views/client/images/imac.png" alt="">
+                                <?php 
+                                    require "./Models/ImageModel.php";
+                                    
+                                    $imageModel = new ImageModel;
+                                    $image = $imageModel->getImageForHome(); 
+                                    
+                                    if($image != null) { ?>
+                                       <img src="<?= $image['path'] ?>" >
+                                    <?php
+                                    } ?>
                             </div>
                         </div>
                     </div>

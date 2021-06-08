@@ -51,6 +51,16 @@ class UserModel extends BaseModel {
         return $result;
     }
 
+    public function checkUser($username, $email)
+    {
+        $sql = "SELECT * FROM user 
+                WHERE username = '${username}' AND email = '${email}'";
+
+        $result = $this->_getRowDataByQuery($sql);
+
+        return $result;
+    }
+
     public function resetPassword($username, $password, $email)
     {
         $sql = "UPDATE user SET password = '${password}' 

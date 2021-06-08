@@ -35,14 +35,14 @@
                             </li>
 
                             <li class="left__menuItem">
-                                <a href="./index.php?controller=dashboard" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Sửa slider</a>
+                                <a href="./index.php?controller=exam&action=show" class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Thống kê</a>
                             </li>
-
+                            
                             <li class="left__menuItem">
-                                <div class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Thống kê<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
+                                <div class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Upload ảnh<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
                                 <div class="left__text">
-                                    <a class="left__link" href="./index.php?controller=exam&action=add">Thêm điểm</a>
-                                    <a class="left__link" href="./index.php?controller=exam&action=show">Xem thống kê</a>
+                                    <a class="left__link" href="./index.php?controller=dashboard&action=addImage">Thêm ảnh</a>
+                                    <a class="left__link" href="./index.php?controller=dashboard&action=showAllImage">Xem tất cả</a>
                                 </div>
                             </li>
 
@@ -83,6 +83,14 @@
                                 <div class="left__text">
                                     <a class="left__link" href="./index.php?controller=subject&action=add">Thêm môn học</a>
                                     <a class="left__link" href="./index.php?controller=subject&action=show">Xem tất cả</a>
+                                </div>
+                            </li>
+
+                            <li class="left__menuItem">
+                                <div class="left__title"><img src="Views/admin/assets/icon-pencil.svg" alt="">Điểm thi<img class="left__iconDown" src="Views/admin/assets/arrow-down.svg" alt=""></div>
+                                <div class="left__text">
+                                    <a class="left__link" href="./index.php?controller=exam&action=add">Thêm điểm</a>
+                                    <a class="left__link" href="./index.php?controller=exam&action=show">Xem tất cả</a>
                                 </div>
                             </li>
 

@@ -138,6 +138,14 @@
 							Tạo tài khoản mới
 						</a>
                     </div>
+
+                    <div class="text-center p-t-78">
+
+                        <a class="txt2" href="./index.php?controller=client">
+							Quay về Trang chủ
+						</a>
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                    </div>
                 </form>
             </div>
         </div>

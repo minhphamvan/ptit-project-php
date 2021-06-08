@@ -67,7 +67,7 @@
 
                                 </table>
 
-                                <a href="/ptit-project-php/index.php?controller=major&action=add" class="right__tableMore">
+                                <a href="/ptit-project-php/index.php?controller=major&action=add" class="right__tableMore" style="width: 550px; padding-top: 15px;">
                                     Thêm ngành<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
                         </div>

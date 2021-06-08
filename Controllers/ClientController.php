@@ -69,7 +69,12 @@ class ClientController extends BaseController
 
         $this->userModel->addUser($data);
 
-        header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        $message = "Đăng kí thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=client&action=login";
+            </script> ';
     }
 
     public function login()
@@ -101,7 +106,12 @@ class ClientController extends BaseController
             $userLogin = $this->userModel->getUserLogin($username, $password);
 
             if($userLogin == null){
-                header("Location: /ptit-project-php/index.php?controller=client&action=login");
+                $message = "Sai tên đăng nhập, mật khẩu !";
+
+                echo '<script>
+                    alert("' . $message . '")
+                    window.location.href="/ptit-project-php/index.php?controller=client&action=login";
+                </script> ';
             }else{
                 $_SESSION["userLogin"] = $userLogin;
 
@@ -136,17 +146,32 @@ class ClientController extends BaseController
         $username = $_POST['username'];
         $email = $_POST['email'];
 
-        $password = $username . date("His");
+        $check = $this->userModel->checkUser($username, $email);
 
-        $this->userModel->resetPassword($username, $password, $email);
+        if($check == null){
+            $message = "Tên tài khoản, email không tồn tại !";
 
-        // Gửi email
-        $to_email = $email;
-        $subject = 'PTIT - Lấy lại mật khẩu';
-        $message = 'Mật khẩu mới của ' . $username . ' là: ' . $password;
-        $headers = 'From: ptit-university@ptit.edu.vn';
-        mail($to_email, $subject, $message, $headers);
+            echo '<script>
+                    alert("' . $message . '")
+                    window.location.href="/ptit-project-php/index.php?controller=client&action=forgotPassword";
+            </script> ';
+        } else {
+            $password = $username . date("His");
+            $this->userModel->resetPassword($username, $password, $email);
 
-        header("Location: /ptit-project-php/index.php?controller=client&action=login");
+            // Gửi email
+            $to_email = $email;
+            $subject = 'PTIT - Lấy lại mật khẩu';
+            $message = 'Mật khẩu mới của ' . $username . ' là: ' . $password;
+            $headers = 'From: ptit-university@ptit.edu.vn';
+            mail($to_email, $subject, $message, $headers);
+
+            $success = "Đã gửi mật khẩu qua mail !";
+
+            echo '<script>
+                    alert("' . $success . '")
+                    window.location.href="/ptit-project-php/index.php?controller=client&action=login";
+            </script> ';
+        }
     }
 }

@@ -17,6 +17,12 @@ class  StudentController extends BaseController
 
         if(isset($_SESSION["userLogin"]) == false){
             header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        } else {
+            $userLogin =$_SESSION["userLogin"];
+
+            if($userLogin['role'] == "USER"){
+                header("Location: /ptit-project-php/index.php?controller=client");
+            }
         }
     }
 
@@ -63,7 +69,12 @@ class  StudentController extends BaseController
             $sent_mail = mail($to_email, $subject, $message, $headers);
         }
 
-        header("Location: /ptit-project-php/index.php?controller=student&action=show");
+        $message = "Đã gửi mail !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=student&action=haveBirthday";
+            </script> ';
     }
 
     public function export()
@@ -96,7 +107,12 @@ class  StudentController extends BaseController
 
         $this->studentModel->addStudent($data);
 
-        header("Location: /ptit-project-php/index.php?controller=student&action=show");
+        $message = "Thêm thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=student&action=show";
+            </script> ';
     }
 
     public function details()
@@ -130,7 +146,12 @@ class  StudentController extends BaseController
 
         $this->studentModel->updateStudent($id, $data);
 
-        header("Location: /ptit-project-php/index.php?controller=student&action=show");
+        $message = "Sửa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=student&action=show";
+            </script> ';
     }
 
     public function delete()
@@ -138,7 +159,12 @@ class  StudentController extends BaseController
         $id = $_GET['id'];   
         $this->studentModel->deleteStudent($id); 
 
-        header("Location: /ptit-project-php/index.php?controller=student&action=show");
+        $message = "Xóa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=student&action=show";
+            </script> ';
     }
 
     public function search()

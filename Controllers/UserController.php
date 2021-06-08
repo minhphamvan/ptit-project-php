@@ -13,6 +13,12 @@ class UserController extends BaseController
 
         if(isset($_SESSION["userLogin"]) == false){
             header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        } else {
+            $userLogin =$_SESSION["userLogin"];
+
+            if($userLogin['role'] == "USER"){
+                header("Location: /ptit-project-php/index.php?controller=client");
+            }
         }
     }
 
@@ -54,7 +60,12 @@ class UserController extends BaseController
 
         $this->userModel->addUser($data);
 
-        header("Location: /ptit-project-php/index.php?controller=user&action=show");
+        $message = "Thêm thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=user&action=show";
+            </script> ';
     }
 
     public function details()
@@ -84,7 +95,12 @@ class UserController extends BaseController
 
         $this->userModel->updateUser($id, $data);
 
-        header("Location: /ptit-project-php/index.php?controller=user&action=show");
+        $message = "Sửa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=user&action=show";
+            </script> ';
     }
 
     public function delete()
@@ -92,6 +108,11 @@ class UserController extends BaseController
         $id = $_GET['id'];   
         $this->userModel->deleteUser($id); 
 
-        header("Location: /ptit-project-php/index.php?controller=user&action=show");
+        $message = "Xóa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=user&action=show";
+            </script> ';
     }
 }

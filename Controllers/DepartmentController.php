@@ -13,6 +13,12 @@ class DepartmentController extends BaseController
 
         if(isset($_SESSION["userLogin"]) == false){
             header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        } else {
+            $userLogin =$_SESSION["userLogin"];
+
+            if($userLogin['role'] == "USER"){
+                header("Location: /ptit-project-php/index.php?controller=client");
+            }
         }
     }
 
@@ -51,7 +57,12 @@ class DepartmentController extends BaseController
 
         $this->departmentModel->addDepartment($data);
 
-        header("Location: /ptit-project-php/index.php?controller=department&action=show"); // Redirect
+        $message = "Thêm thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=department&action=show";
+            </script> ';
     }
 
     public function details()
@@ -79,7 +90,12 @@ class DepartmentController extends BaseController
 
         $this->departmentModel->updateDepartment($id, $data);
 
-        header("Location: /ptit-project-php/index.php?controller=department&action=show");
+        $message = "Sửa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=department&action=show";
+            </script> ';
     }
 
     public function delete()
@@ -87,7 +103,12 @@ class DepartmentController extends BaseController
         $id = $_GET['id'];   
         $this->departmentModel->deleteDepartment($id); 
 
-        header("Location: /ptit-project-php/index.php?controller=department&action=show");
+        $message = "Xóa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=department&action=show";
+            </script> ';
     }
 
     public function search()

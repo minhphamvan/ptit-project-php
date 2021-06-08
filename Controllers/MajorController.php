@@ -17,6 +17,12 @@ class  MajorController extends BaseController
 
         if(isset($_SESSION["userLogin"]) == false){
             header("Location: /ptit-project-php/index.php?controller=client&action=login");
+        } else {
+            $userLogin =$_SESSION["userLogin"];
+
+            if($userLogin['role'] == "USER"){
+                header("Location: /ptit-project-php/index.php?controller=client");
+            }
         }
     }
 
@@ -62,7 +68,12 @@ class  MajorController extends BaseController
 
         $this->majorModel->addMajor($data);
 
-        header("Location: /ptit-project-php/index.php?controller=major&action=show"); // Redirect
+        $message = "Thêm thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=major&action=show";
+            </script> ';
     }
 
     public function details()
@@ -94,7 +105,12 @@ class  MajorController extends BaseController
 
         $this->majorModel->updateMajor($id, $data);
 
-        header("Location: /ptit-project-php/index.php?controller=major&action=show");
+        $message = "Sửa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=major&action=show";
+            </script> ';
     }
 
     public function delete()
@@ -102,7 +118,12 @@ class  MajorController extends BaseController
         $id = $_GET['id'];   
         $this->majorModel->deleteMajor($id); 
 
-        header("Location: /ptit-project-php/index.php?controller=major&action=show");
+        $message = "Xóa thành công !";
+
+        echo '<script>
+                alert("' . $message . '")
+                window.location.href="/ptit-project-php/index.php?controller=major&action=show";
+            </script> ';
     }
 
     

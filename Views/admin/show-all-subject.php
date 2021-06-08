@@ -63,7 +63,7 @@
                                     </tbody>
                                 </table>
 
-                                <a href="/ptit-project-php/index.php?controller=subject&action=add" class="right__tableMore">
+                                <a href="/ptit-project-php/index.php?controller=subject&action=add" class="right__tableMore" style="width: 550px; padding-top: 15px;">
                                     Thêm môn học<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
                             </div>
                         </div>
