@@ -49,9 +49,7 @@
                                             <td data-label="Hình ảnh"><img src="<?= $i['path'] ?>" style="width: 100px; "></td>
                                                 <?php if($i['choose'] == 1) { ?>
                                                     <td data-label="Chọn">
-                                                        <a href="/ptit-project-php/index.php?controller=dashboard&action=updateImageForHome&id=<?= $i['id']?>" class="right__iconTable">
-                                                            <img src="Views/admin/assets/icon-check.svg">
-                                                        </a>
+                                                        <img src="Views/admin/assets/icon-check.svg">
                                                     </td>
                                                 <?php } else { ?>
                                                     <td data-label="Chọn">

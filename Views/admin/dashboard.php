@@ -91,7 +91,7 @@
 
                             </div>
 
-                            <a href="/ptit-project-php/index.php?controller=user&action=add" class="right__tableMore">
+                            <a href="/ptit-project-php/index.php?controller=user&action=add" class="right__tableMore" >
                                 Thêm người dùng<img src="Views/admin/assets/arrow-right-black.svg" alt=""></a>
 
                         </div>
