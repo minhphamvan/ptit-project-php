@@ -101,7 +101,8 @@
 
             $('.timkiem').keyup(function(){
                 var txt = $('.timkiem').val();
-                $.post('/ptit-project-php/index.php?controller=student&action=search', {data: txt}, function(data){
+                $.post('/ptit-project-php/index.php?controller=student&action=search',
+                     {data: txt}, function(data){
                     $('.danhsach').html(data);
                 })
             })
