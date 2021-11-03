@@ -1,6 +1,7 @@
 <?php
 
-// URL: ptit-project-php=index.php?controller=${controllerName}&action=${actionName}
+// URL: /ptit-project-php/index.php?controller=${controllerName}&action=${actionName}
+// http://localhost/ptit-project-php/index.php?controller=client&action=home
 
 require "./Core/Database.php";
 require "./Models/BaseModel.php";
