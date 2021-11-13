@@ -1,0 +1,11 @@
+- Đăng kí
+- Đăng nhập
+- Quên mật khẩu? --> gửi mail lấy lại mật khẩu
+
+- Thêm, sửa, xóa: khoa / ngành / giảng viên / sinh viên / môn học / điểm thi
+- Tìm kiếm theo tên sinh viên --> AJAX
+
+- Sinh nhật hôm nay --> gửi mail chúc mừng
+- Biểu đồ Google chart thống kê theo địa chỉ sinh viên
+- Thống kê Sinh viên và số môn đang học --> xuất file Excel
+- Upload ảnh trên Trang chủ
